@@ -5,6 +5,9 @@
  */
 package cit.pkg360;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  *
  * @author mount
@@ -27,10 +30,24 @@ public class ThreadsRunnersandExecutors {
 
     System.out.println("Done!");
     sleep();
+    executor();
     }
     
-
-
+private static void executor() {
+//Executor
+    {
+    ExecutorService executor = Executors.newSingleThreadExecutor();
+    executor.submit(() -> {
+    String threadName = Thread.currentThread().getName();
+    System.out.println("Hello ex" + threadName);
+    
+    //shuts it down
+    executor.shutdownNow();
+    
+});
+}
+    
+}
     
     
 
@@ -45,11 +62,12 @@ public class ThreadsRunnersandExecutors {
     catch (InterruptedException e) {
         e.printStackTrace();
     }
-};
+};  
 
 Thread thread = new Thread(runnable);
 thread.start();
 }
+    
 }
 
 

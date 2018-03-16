@@ -24,15 +24,26 @@ public class HelloWorld extends HttpServlet {
       message = "Hello World";
    }
 
-   public void doGet(HttpServletRequest request, HttpServletResponse response)
+   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
       
+       
+      // read form fields
+      String username = request.getParameter("username");
+      String password = request.getParameter("password");
+         
+      System.out.println("username: " + username);
+      System.out.println("password: " + password);
+        
+        
       // Set response content type
       response.setContentType("text/html");
 
-      // Actual logic goes here.
-      PrintWriter out = response.getWriter();
-      out.println("<h1>" + message + "</h1>");
+      // build HTML code
+      String htmlRespone = "<html>";
+      htmlRespone += "<h2>Your username is: " + username + "<br/>";      
+      htmlRespone += "Your password is: " + password + "</h2>";    
+      htmlRespone += "</html>";
    }
 
    public void destroy() {
