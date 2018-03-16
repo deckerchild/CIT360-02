@@ -61,5 +61,38 @@ public class jUnitIT {
         int result = instance.add(s1, s2);
         assertEquals(expResult, result);
     }
+    //is this what you were expecting? 
+    @Test
+    public void testAdd3() {
+        System.out.println("add");
+        String s1 = "-2";
+        String s2 = "3";
+        jUnit instance = new jUnit();
+        int expResult = 1;
+        int result = instance.add(s1, s2);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testAdd4() {
+        System.out.println("add");
+        String s1 = "0";
+        String s2 = "0";
+        jUnit instance = new jUnit();
+        int expResult = 0;
+        int result = instance.add(s1, s2);
+        assertEquals(expResult, result);
+    }
+    //Hope this is enough!
+    @Test
+    public void testAdd5() {
+        System.out.println("add");
+        String s1 = "100";
+        String s2 = "342";
+        jUnit instance = new jUnit();
+        int expResult = 442;
+        int result = instance.add(s1, s2);
+        assertEquals(expResult, result);
+    }
     
 }
