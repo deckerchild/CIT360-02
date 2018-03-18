@@ -6,15 +6,17 @@
 package cit.pkg360;
 
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 /**
  *
  * @author mount
  */
 
-//objects are combined into single JSON object
+//objects are combined into single JSON object. This prepares the objects to be sent to a web server.
 public class exampleJSON {
     public static void main(String[] args){
+        {
       JSONObject obj = new JSONObject();
 
       obj.put("name", "foo");
@@ -23,8 +25,20 @@ public class exampleJSON {
       obj.put("is_vip", new Boolean(true));
 
       System.out.print(obj);
-      
+        }
+        
+ //object here is decoded from JSON object to separate objects. This simulates recieving a different object from a web resource and breaking it out into workable objects
+        {  
+    String s="{\"name\":\"sonoo\",\"salary\":600000.0,\"age\":27}";  
+    Object obj=JSONValue.parse(s);  
+    JSONObject jsonObject = (JSONObject) obj;  
+  
+    String name = (String) jsonObject.get("name");  
+    double salary = (Double) jsonObject.get("salary");  
+    long age = (Long) jsonObject.get("age");  
+    System.out.println("\n"+name+" "+salary+" "+age);  
+        }  
    }
     
-    
+   
 }
