@@ -95,4 +95,27 @@ public class jUnitIT {
         assertEquals(expResult, result);
     }
     
+    //using the assertNotNull method
+    @Test
+    public void testNotNull() {
+        System.out.println("add");
+        String s1 = "100";
+        String s2 = "342";
+        jUnit instance = new jUnit();
+        int result = instance.add(s1, s2);
+        assertNotNull(result);
+    }
+    
+    //using the assertSame method
+    @Test
+    public void testSame() {
+        System.out.println("add");
+        String s1 = "1";
+        String s2 = "1";
+        jUnit instance = new jUnit();
+        int expResult = 2;
+        int result = instance.add(s1, s2);
+        assertSame(expResult, result);
+    }
+    
 }
